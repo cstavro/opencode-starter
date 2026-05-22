@@ -1,0 +1,48 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Ubuntu",
+
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "."
+	},
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {
+	// 	"ghcr.io/devcontainers/features/python": {},
+	// 	"ghcr.io/devcontainers/features/node": {}
+	// },
+
+	"mounts": [
+		{
+			"source": "opencode-workspace",
+			"target": "/mnt/opencode-workspace",
+			"type": "volume"
+		}
+	],
+
+	"containerEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
+		"CONTAINER_WORKSPACE_FOLDER": "${containerWorkspaceFolder}"
+	},
+
+	"remoteEnv": {
+    	"PATH": "${containerEnv:PATH}:~/.bun/bin"
+  	},
+	
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'onCreateCommand' to run commands when the container is created.
+	// "onCreateCommand": "mkdir /mnt/opencode-workspace"
+	
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "${containerWorkspaceFolder}/.devcontainer/lifecycle-scripts/post-create.sh"
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
