@@ -72,7 +72,7 @@ After the devcontainer is created, the main entrypoint script at `.devcontainer/
 
 ### Disabling a Script
 
-To prevent a script from running, prefix its filename with an underscore (`_`). For example, renaming `01-setup-opencode.sh` to `_00-setup-opencode.sh` will cause the orchestrator to skip it.
+To prevent a script from running, prefix its filename with an underscore (`_`). For example, renaming `01-setup-opencode.sh` to `_01-setup-opencode.sh` will cause the orchestrator to skip it.
 
 ### Included Scripts
 
