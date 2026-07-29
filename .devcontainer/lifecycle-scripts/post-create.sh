@@ -6,8 +6,6 @@
 
 set -e
 
-chmod +x ${CONTAINER_WORKSPACE_FOLDER}/.devcontainer/lifecycle-scripts/post-create/*.sh
-
 for script in $(ls -1 ${CONTAINER_WORKSPACE_FOLDER}/.devcontainer/lifecycle-scripts/post-create/*.sh | sort); do
     if [ -f "$script" ] && [[ "$(basename "$script")" != _* ]]; then
         echo "Running post-create script: $script"
